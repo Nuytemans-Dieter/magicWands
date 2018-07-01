@@ -11,7 +11,8 @@ public class SpellHandler {
     
     private long cooldown = 0;
     private HashMap<Player,Long> playerRecords = new HashMap<>();
-    
+    private int cost;
+            
     /**
      * Check if a player can cast a spell already 
      * @param p
@@ -51,6 +52,15 @@ public class SpellHandler {
     public void setCooldown(long ticks)
     {
         cooldown = ticks;
+    }
+    
+    /**
+     * set the cost of this spell
+     * @param cost
+     */
+    public void setCost(int cost)
+    {
+        this.cost = cost;
     }
     
     /**

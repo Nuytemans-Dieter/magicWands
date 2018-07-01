@@ -54,6 +54,8 @@ public class Spell {
         this.castName = castName;
         this.descr = description;
         this.handler = h;
+        h.setCooldown(0);
+        h.setCost(0);
     }
     
         /**
@@ -65,14 +67,16 @@ public class Spell {
      * @param description
      * @param h Handler for the spell
      * @param cooldown 
+     * @param cost 
      */
-    public Spell(String name, String castName, String description, SpellHandler h, long cooldown)
+    public Spell(String name, String castName, String description, SpellHandler h, long cooldown, int cost)
     {
         this.name = name;
         this.castName = castName;
         this.descr = description;
         this.handler = h;
         h.setCooldown(cooldown);
+        h.setCost(cost);
     }
     
     /**

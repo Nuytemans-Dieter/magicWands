@@ -1,0 +1,22 @@
+spells:
+    summon_cow:
+      name: Pariunt Cow
+      description: Summon a cow
+      cooldown: 1000
+      cost: 10
+      handler: SpawnEntity
+      action: COW
+    spawn_torch:
+      name: Lux
+      description: Get some light
+      cooldown: 100
+      cost: 1
+      handler: SpawnBlock
+      action: TORCH
+wands:
+    general_wand:
+        name: §cGeneral Wand
+        spells: summon_cow, spawn_torch
+    entity_wand:
+        name: §3Entity wand
+        spells: spawn_torch
