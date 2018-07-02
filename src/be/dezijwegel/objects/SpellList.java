@@ -1,7 +1,9 @@
-package be.dezijwegel;
+package be.dezijwegel.objects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import be.dezijwegel.objects.Spell;
 import org.bukkit.entity.Player;
 
 /**

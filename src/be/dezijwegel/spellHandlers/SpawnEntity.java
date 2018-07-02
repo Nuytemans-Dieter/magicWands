@@ -5,6 +5,9 @@ import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author Dieter
@@ -23,7 +26,7 @@ public class SpawnEntity extends SpellHandler {
     {
         if (super.cast(player))
         {
-            Location loc = player.getTargetBlock(null,30).getLocation();
+            Location loc = player.getTargetBlock((Set<Material>) null,30).getLocation();
             loc.setY(loc.getY()+1);
             Material mat = player.getWorld().getBlockAt(loc).getType();
             if(mat.equals(Material.AIR) || mat.equals(Material.GRASS))

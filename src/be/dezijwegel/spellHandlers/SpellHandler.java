@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
  *
  * @author Dieter
  */
-public class SpellHandler {
+public  class SpellHandler {
     
     private long cooldown = 0;
     private HashMap<Player,Long> playerRecords = new HashMap<>();
@@ -18,7 +18,7 @@ public class SpellHandler {
      * @param p
      * @return true: player may cast, false: player may not cast yet
      */
-    public boolean canCastAlready(Player p)
+    public boolean isCastable(Player p)
     {
         if (playerRecords.containsKey(p)) 
             return System.currentTimeMillis()/100 - playerRecords.get(p) > cooldown;
@@ -49,7 +49,7 @@ public class SpellHandler {
      * 10 ticks means one second here
      * @param ticks 
      */
-    public void setCooldown(long ticks)
+    public  void setCooldown(long ticks)
     {
         cooldown = ticks;
     }
@@ -69,7 +69,7 @@ public class SpellHandler {
      * @return 
      */
     public boolean cast(Player player) {
-        if (canCastAlready(player)) 
+        if (isCastable(player))
         {
             return true;
         }else {

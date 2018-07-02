@@ -1,4 +1,4 @@
-package be.dezijwegel;
+package be.dezijwegel.objects;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

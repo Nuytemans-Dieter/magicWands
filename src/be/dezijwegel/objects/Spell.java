@@ -1,4 +1,4 @@
-package be.dezijwegel;
+package be.dezijwegel.objects;
 
 import be.dezijwegel.spellHandlers.SpellHandler;
 import org.bukkit.entity.Player;

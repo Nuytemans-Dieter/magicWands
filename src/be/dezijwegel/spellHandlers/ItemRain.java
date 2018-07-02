@@ -5,13 +5,14 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Set;
+
 /**
  *
  * @author Dieter
  */
 public class ItemRain extends SpellHandler{
-    
-    ItemStack item;
+    private ItemStack item;
     
     public ItemRain(ItemStack item)
     {
@@ -23,7 +24,7 @@ public class ItemRain extends SpellHandler{
     {
         if (super.cast(player))
         {
-            Location loc = player.getTargetBlock(null,15).getLocation();
+            Location loc = player.getTargetBlock((Set<Material>)null,15).getLocation();
             loc.setY(loc.getY() + 10);
             
             if (isValidLocation(loc))
