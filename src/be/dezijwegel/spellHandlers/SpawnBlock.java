@@ -5,13 +5,15 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
+import java.util.Set;
+
 /**
  *
  * @author Dieter
  */
 public class SpawnBlock extends SpellHandler{
     
-    Material material;
+    private Material material;
     
     public SpawnBlock(Material material)
     {
@@ -23,7 +25,7 @@ public class SpawnBlock extends SpellHandler{
     {
         if (super.cast(player))
         {
-            Block b = player.getTargetBlock(null,15);
+            Block b = player.getTargetBlock((Set<Material>)null,15);
             if (!b.getType().equals(Material.AIR))
             {
                 Location loc = b.getLocation();

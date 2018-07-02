@@ -5,6 +5,8 @@ import org.bukkit.block.Block;
 import org.bukkit.block.Furnace;
 import org.bukkit.entity.Player;
 
+import java.util.Set;
+
 /**
  *
  * @author Dieter
@@ -16,7 +18,7 @@ public class FurnaceFire extends SpellHandler{
     {
         if (super.cast(player))
         {
-            Block b = player.getTargetBlock(null,10);
+            Block b = player.getTargetBlock((Set<Material>)null,10);
             if(b.getType().equals(Material.FURNACE))
             {
                 ((Furnace)b.getState()).setBurnTime((short) 2000);
