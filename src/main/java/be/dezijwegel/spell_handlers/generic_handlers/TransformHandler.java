@@ -8,7 +8,6 @@ import be.dezijwegel.spell_handlers.SpellHandler;
  */
 public class TransformHandler extends SpellHandler {
 
-    private Object transform;
-    private Wand used;
+    public abstract void transform(Entity entity);
 
 }
