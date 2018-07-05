@@ -1,22 +1,26 @@
 package be.dezijwegel.spell_handlers.generic_handlers.handlers;
 
+import be.dezijwegel.objects.PlayerData;
 import be.dezijwegel.spell_handlers.generic_handlers.TeleportationHandler;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import java.util.Set;
-import org.bukkit.entity.Entity;
 
 public class TeleportLocation extends TeleportationHandler {
 
-    private int maxDistance;
+    private final int maxDistance;
 
-    public TeleportLocation(int maxDistance) {
+    public TeleportLocation(PlayerData caster, Entity teleport, Location location, int maxDistance) {
+        super(caster, teleport, location);
         this.maxDistance = maxDistance;
     }
 
-    @Override
+    /**
+     * @deprecated
+     */
     public boolean cast(Player player) {
         if (super.cast(player)) {
             Location loc = player.getTargetBlock((Set<Material>) null, maxDistance).getLocation();

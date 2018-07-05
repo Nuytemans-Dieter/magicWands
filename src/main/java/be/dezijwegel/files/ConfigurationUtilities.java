@@ -1,15 +1,15 @@
 package be.dezijwegel.files;
 
 import be.dezijwegel.MagicWands;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.inventory.ItemStack;
 
 import java.io.File;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
-import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.inventory.ItemStack;
 
 /**
  * created by @Perotin
@@ -47,6 +47,14 @@ public class ConfigurationUtilities {
 
     }
 
+    public static void loadSpells() {
+        ConfigurationUtilities file = new ConfigurationUtilities(FileType.SPELLS, MagicWands.getInstance());
+        for (String spellName : file.getConfiguration().getConfigurationSection("spells").getKeys(false)) {
+            String description = file.getConfiguration().getString("spells." + spellName + ".description");
+
+
+        }
+    }
     public FileConfiguration getConfiguration() {
         return this.configuration;
     }

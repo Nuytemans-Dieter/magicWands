@@ -1,5 +1,6 @@
 package be.dezijwegel.spell_handlers.generic_handlers.handlers;
 
+import be.dezijwegel.objects.PlayerData;
 import be.dezijwegel.spell_handlers.generic_handlers.SpawnHandler;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -8,16 +9,19 @@ import org.bukkit.entity.Player;
 
 import java.util.Set;
 
+
 public class ItemRain extends SpawnHandler {
 
-    public ItemRain(Entity entity, Location location) {
-        super(location, entity);
+    public ItemRain(Entity entity, Location location, PlayerData caster) {
+
+        super(caster, location, entity);
     }
 
 
-    @Override
-    public boolean cast(Player player) {
-        if (super.cast(player)) {
+    /**
+     * @deprecated
+     **/
+    public boolean run(Player player) {
             Location loc = player.getTargetBlock((Set<Material>) null, 15).getLocation();
             loc.setY(loc.getY() + 10);
 
@@ -25,15 +29,17 @@ public class ItemRain extends SpawnHandler {
                 for (int x = -2; x < 3; x++) {
                     for (int z = -2; z < 3; z++) {
                         Location copy = new Location(loc.getWorld(), loc.getX() + x, loc.getY(), loc.getZ() + z);
-                        player.getWorld().spawnEntity(copy, getToSpawn().getType());
+                        run();
                     }
                 }
             } else {
                 player.sendMessage("§3[magicWands]§cThis spell has to be cast in a very open area!");
             }
-        }
+
         return false;
     }
+
+
 
     public boolean isValidLocation(Location loc) {
         Location copy = new Location(loc.getWorld(), loc.getX(), loc.getY(), loc.getZ());
@@ -50,6 +56,6 @@ public class ItemRain extends SpawnHandler {
 
     @Override
     public void spawn(Entity item, Location location) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        location.getWorld().spawnEntity(location, item.getType());
     }
 }

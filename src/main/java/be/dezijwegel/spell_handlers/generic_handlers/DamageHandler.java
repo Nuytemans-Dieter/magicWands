@@ -1,12 +1,11 @@
 package be.dezijwegel.spell_handlers.generic_handlers;
 
+import be.dezijwegel.objects.PlayerData;
 import be.dezijwegel.spell_handlers.SpellHandler;
 import lombok.Getter;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Entity;
 
-@RequiredArgsConstructor
 public abstract class DamageHandler extends SpellHandler{
 
     @Getter
@@ -16,5 +15,15 @@ public abstract class DamageHandler extends SpellHandler{
     @NonNull
     protected int damage;
 
+    public DamageHandler(Entity entity, int damage, PlayerData playerData) {
+        super(playerData);
+        this.entity = entity;
+        this.damage = damage;
+    }
+
     public abstract void damage(Entity entity, int damage);
+
+    public void run() {
+        damage(entity, damage);
+    }
 }

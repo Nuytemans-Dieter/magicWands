@@ -1,156 +1,116 @@
 spells:
-    summon_pig:
-      name: Pariunt Porcus
+    Pariunt Porcus:
       description: Summon a pig
-      cooldown: 100
       cost: 5
       handler: SpawnEntity
       action: PIG
-    summon_chicken:
-      name: Pariunt Pullum
+    Pariunt Pullum:
       description: Summon a chicken
-      cooldown: 50
       cost: 2
       handler: SpawnEntity
       action: CHICKEN
-    summon_cow:
-      name: Pariunt Ceva
+    Pariunt Ceva:
       description: Summon a cow
-      cooldown: 100
       cost: 10
       handler: SpawnEntity
       action: COW
-    summon_zombie:
-      name: Pariunt Immortuos
+    Pariunt Immortuos:
       description: Summon a zombie
-      cooldown: 1000
       cost: 20
       handler: SpawnEntity
       action: ZOMBIE
-    summon_skeleton:
-      name: Pariunt Osseus
+    Pariunt Osseus:
       description: Summon a skeleton
-      cooldown: 1500
       cost: 50
       handler: SpawnEntity
       action: SKELETON
-    summon_creeper:
-      name: Pariunt Callidus
+    Pariunt Callidus:
       description: Summon a creeper
-      cooldown: 2000
       cost: 70
       handler: SpawnEntity
       action: CREEPER
-    spawn_torch:
-      name: Lux
+    Lux:
       description: Get some light
-      cooldown: 10
       cost: 5
       handler: SpawnBlock
       action: TORCH
-    spawn_workbench:
-      name: Mensa Artis
+    Mensa Artis:
       description: Get a crafting table
-      cooldown: 10
       cost: 5
       handler: SpawnBlock
       action: WORKBENCH
-    spawn_chest:
-      name: Pectus
+    Pectus:
       description: Get some storage space
-      cooldown: 10
       cost: 5
       handler: SpawnBlock
       action: CHEST
-    spawn_furnace:
-      name: Fornacem
+    Fornacem:
       description: Get a furnace
-      cooldown: 10
       cost: 5
       handler: SpawnBlock
       action: FURNACE
-    explosion_small:
-      name: Crepitus Parvus
+    Crepitus Parvus:
       description: Create a small explosion
-      cooldown: 50
       cost: 40
       handler: Explosion
       action: 7
-    explosion_big:
-      name: Crepitus Magnum
+    Crepitus Magnum:
       description: Create a big explosion
-      cooldown: 100
       cost: 60
       handler: Explosion
       action: 15
-    rain_dirt:
-      name: Pluviam Lutum
+    Pluviam Lutum:
       description: Make it rain dirt
-      cooldown: 1000
       cost: 10
       handler: ItemRain
       action:
         ==: org.bukkit.inventory.ItemStack
         type: DIRT
         amount: 5
-    rain_cobblestone:
-      name: Pluviam Saxum
+    Pluviam Saxum:
       description: Make it rain cobblestone
-      cooldown: 1000
       cost: 40
       handler: ItemRain
       action:
         ==: org.bukkit.inventory.ItemStack
         type: COBBLESTONE
         amount: 3
-    rain_wood:
-      name: Pluviam Lignum
+    Pluviam Lignum:
       description: Make it rain wood
-      cooldown: 1000
       cost: 60
       handler: ItemRain
       action:
         ==: org.bukkit.inventory.ItemStack
         type: LOG
         amount: 1
-    trans_water:
-        name: Mutatio Aqua
+    Mutatio Aqua:
         description: Turn a block into water
-        cooldown: 100
         cost: 20
         handler: TransformBlock
         action: WATER
-    trans_glass:
-        name: Mutatio Vitrum
+    Mutatio Vitrum:
         description: Turn a block into glass
-        cooldown: 10
         cost: 50
         handler: TransformBlock
         action: GLASS
-    trans_gold:
-        name: Mutatio Aurum
+    Mutatio Aurum:
         description: Turn a block into gold
-        cooldown: 10000
         cost: 100
         handler: TransformBlock
         action: GOLD_BLOCK
-    teleport_short:
-        name: Lanuae Brevis
+    Lanuae Brevis:
         description: Teleport up to 20 blocks
-        cooldown: 100
         cost: 50
         handler: TeleportLocation
         action: 20
-    teleport_long:
-        name: Lanuae Longus
+    Lanuae Longus:
         description: Teleport up to 100 blocks
-        cooldown: 1000
         cost: 100
         handler: TeleportLocation
         action: 100
 wands:
     general_wand:
-        name: §eGeneral Wand
+        name: "§eGeneral Wand"
         spells:
           - spawn_torch
           - summon_cow
