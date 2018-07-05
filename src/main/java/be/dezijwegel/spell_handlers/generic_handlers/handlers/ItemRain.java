@@ -1,19 +1,19 @@
 package be.dezijwegel.spell_handlers.generic_handlers.handlers;
 
-import be.dezijwegel.spell_handlers.generic_handlers.ItemHandler;
+import be.dezijwegel.spell_handlers.generic_handlers.SpawnHandler;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.Set;
 
-public class ItemRain extends ItemHandler {
-    private ItemStack item;
+public class ItemRain extends SpawnHandler {
 
-    public ItemRain(ItemStack item) {
-        this.item = item;
+    public ItemRain(Entity entity, Location location) {
+        super(location, entity);
     }
+
 
     @Override
     public boolean cast(Player player) {
@@ -25,7 +25,7 @@ public class ItemRain extends ItemHandler {
                 for (int x = -2; x < 3; x++) {
                     for (int z = -2; z < 3; z++) {
                         Location copy = new Location(loc.getWorld(), loc.getX() + x, loc.getY(), loc.getZ() + z);
-                        player.getWorld().dropItem(copy, item);
+                        player.getWorld().spawnEntity(copy, getToSpawn().getType());
                     }
                 }
             } else {
@@ -49,7 +49,7 @@ public class ItemRain extends ItemHandler {
     }
 
     @Override
-    public void spawnItem(ItemStack item) {
+    public void spawn(Entity item, Location location) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

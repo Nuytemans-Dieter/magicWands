@@ -1,10 +1,28 @@
 package be.dezijwegel.spell_handlers.generic_handlers;
 
 import be.dezijwegel.spell_handlers.SpellHandler;
-import org.bukkit.entity.Entity;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import org.bukkit.Location;
 
-public abstract class SpawnHandler extends SpellHandler{
+@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
+public abstract class SpawnHandler<T> extends SpellHandler {
 
-    public abstract void spawn(Entity entity);
+
+    @Getter
+    @NonNull
+    protected Location location;
+    @Getter
+    @NonNull
+    protected T toSpawn;
+
+
+    public abstract void spawn(T entity, Location location);
 }
+
+
+
+
 

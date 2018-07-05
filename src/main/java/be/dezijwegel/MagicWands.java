@@ -1,6 +1,7 @@
 package be.dezijwegel;
 
 import be.dezijwegel.events.MagicListener;
+import be.dezijwegel.files.ConfigurationUtilities;
 import be.dezijwegel.objects.Spell;
 import be.dezijwegel.objects.Wand;
 import be.dezijwegel.spell_handlers.SpellHandler;
@@ -22,6 +23,12 @@ import java.util.logging.Level;
  * @author Dieter Nuytemans, Perotin
  */
 public class MagicWands extends JavaPlugin {
+    /*
+    TODO list.
+    1. Refactor Wand class to contain SpellList
+    2. Refactor loadSpells to use abstracted classes
+
+     */
 
 
     static HashMap<String, Spell> spells;
@@ -34,17 +41,17 @@ public class MagicWands extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+        spells = new HashMap<>();
+        wands = new ArrayList<>();
         saveDefaultConfig();
         getServer().getPluginManager().registerEvents(new MagicListener(), this);
     }
 
-    // Need to find a way to condense this and abstractly load in handlers and spells. I have some ideas to do this but it'd be a
-    // big overhaul
-    private void loadSpellsFile() {
-        MagicWands.spells = new HashMap<>();
-        MagicWands.wands = new ArrayList<>();
-        if (getConfig().contains("spells")) {
-            for (String path : getConfig().getConfigurationSection("spells").getKeys(false)) {
+    // started refactoring, will finish.
+    private void loadSpells() {
+        ConfigurationUtilities spellsFile = new ConfigurationUtilities(ConfigurationUtilities.FileType.SPELLS, this);
+
+        for (String path : spellsFile.getConfiguration().getConfigurationSection("spells").getKeys(false)) {
                 String name = getConfig().getString("spells." + path + ".name");
                 String description = getConfig().getString("spells." + path + ".description");
                 int cooldown = getConfig().getInt("spells." + path + ".cooldown");

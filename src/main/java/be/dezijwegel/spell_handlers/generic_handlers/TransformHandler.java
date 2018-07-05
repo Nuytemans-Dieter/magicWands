@@ -1,16 +1,22 @@
 package be.dezijwegel.spell_handlers.generic_handlers;
 
 import be.dezijwegel.spell_handlers.SpellHandler;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 
-/** Class used for parenting all handlers that transform a block or entity
- */
-/** 
- * I used a generic type as we want to allow both blocks and entities to be transformed
- * Let me know your thoughts on this
- */
-public abstract class TransformHandler<T> extends SpellHandler{
+@RequiredArgsConstructor
+public abstract class TransformHandler<T, E> extends SpellHandler {
 
-    public abstract void transform(T entity);
-    
+
+    @Getter
+    @NonNull
+    protected T object;
+    @Getter
+    @NonNull
+    protected E newObject;
+
+    public abstract void transform(T object, E newObject);
+
 }

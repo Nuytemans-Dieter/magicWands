@@ -1,6 +1,6 @@
 package be.dezijwegel.spell_handlers.generic_handlers.handlers;
 
-import be.dezijwegel.spell_handlers.generic_handlers.TransformHandler;
+import be.dezijwegel.spell_handlers.generic_handlers.SpawnHandler;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -8,12 +8,11 @@ import org.bukkit.entity.Player;
 
 import java.util.Set;
 
-public class SpawnBlock extends TransformHandler {
+public class SpawnBlock extends SpawnHandler {
 
-    private Material material;
 
-    public SpawnBlock(Material material) {
-        this.material = material;
+    public SpawnBlock(Material toSpawn, Location location) {
+        super(location, toSpawn);
     }
 
     @Override
@@ -25,7 +24,7 @@ public class SpawnBlock extends TransformHandler {
                 if (b.getType().equals(Material.GRASS)) loc.setY(loc.getY() + 1);
                 Block newBlock = player.getWorld().getBlockAt(loc);
                 if (newBlock.getType().equals(Material.AIR) || b.getType().equals(Material.GRASS)) {
-                    newBlock.setType(material);
+                    spawn(newBlock.getType(), newBlock.getLocation());
                     super.setCast(player);
                     return true;
                 } else {
@@ -39,8 +38,10 @@ public class SpawnBlock extends TransformHandler {
     }
 
     @Override
-    public void transform(Object entity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void spawn(Object materialType, Location location) {
+        Material material = (Material) materialType;
+        location.getBlock().setType(material);
+
     }
     
 }

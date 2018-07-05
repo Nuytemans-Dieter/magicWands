@@ -45,6 +45,10 @@ public class ConfigurationUtilities {
 
     }
 
+    public FileConfiguration getConfiguration() {
+        return this.configuration;
+    }
+
     public Object get(String path) {
         return configuration.get(path);
     }
