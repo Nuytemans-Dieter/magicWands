@@ -5,7 +5,9 @@ import be.dezijwegel.files.ConfigurationUtilities;
 import be.dezijwegel.objects.Spell;
 import be.dezijwegel.objects.Wand;
 import be.dezijwegel.spell_handlers.SpellHandler;
-import be.dezijwegel.spell_handlers.generic_handlers.handlers.*;
+import be.dezijwegel.spell_handlers.generic_handlers.handlers.SpawnEntity;
+import be.dezijwegel.spell_handlers.generic_handlers.handlers.TeleportLocation;
+import be.dezijwegel.spell_handlers.generic_handlers.handlers.TransformBlock;
 import be.dezijwegel.spell_handlers.nongeneric_handlers.Explosion;
 import lombok.Getter;
 import lombok.NonNull;
@@ -26,7 +28,7 @@ public class MagicWands extends JavaPlugin {
     /*
     TODO list.
     1. Refactor loadSpells to use abstracted classes
-    2. Fix the remaining errors (Handlers & comments in the main class)
+    2. Fix the remaining exceptions (Handlers & comments in the main class)
      */
 
 

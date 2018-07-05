@@ -1,27 +1,20 @@
 package be.dezijwegel.objects;
 
 import be.dezijwegel.spell_handlers.SpellHandler;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import org.bukkit.entity.Player;
 
 
 @Getter
+@EqualsAndHashCode
 public class Spell {
 
-    private String name;
-    private String description = null;
-    private SpellHandler handler;
+    private final String name;
+    private final String description;
+    private final SpellHandler handler;
 
 
-    /**
-     * @param name
-     * @param handler for the spell
-     * @deprecated Create a spell with given name and message that will be sent to the player upon casting the spell
-     */
-    public Spell(String name, SpellHandler handler) {
-        this.name = name;
-        this.handler = handler;
-    }
+
 
     /**
      * Create a spell with given name, message that will be sent to the player upon casting the spell
@@ -43,15 +36,6 @@ public class Spell {
 
     }
 
-    /**
-     * Run the handler of this spell
-     *
-     * @param player
-     * @return boolean: success/fail
-     */
-    public boolean cast(Player player) {
-        return handler.cast(player);
-    }
 
 
 }
