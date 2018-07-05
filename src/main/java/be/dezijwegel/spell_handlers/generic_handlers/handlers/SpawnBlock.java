@@ -1,6 +1,6 @@
 package be.dezijwegel.spell_handlers.generic_handlers.handlers;
 
-import be.dezijwegel.spell_handlers.SpellHandler;
+import be.dezijwegel.spell_handlers.generic_handlers.TransformHandler;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -8,10 +8,7 @@ import org.bukkit.entity.Player;
 
 import java.util.Set;
 
-/**
- * @author Dieter
- */
-public class SpawnBlock extends SpellHandler {
+public class SpawnBlock extends TransformHandler {
 
     private Material material;
 
@@ -40,4 +37,10 @@ public class SpawnBlock extends SpellHandler {
         }
         return false;
     }
+
+    @Override
+    public void transform(Object entity) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
 }

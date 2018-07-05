@@ -1,20 +1,14 @@
-/*
- * Geen license header toegevoegd
- * Dieter Nuytemans
- */
 package be.dezijwegel.spell_handlers.generic_handlers.handlers;
 
-import be.dezijwegel.spell_handlers.SpellHandler;
+import be.dezijwegel.spell_handlers.generic_handlers.TransformHandler;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
 import java.util.Set;
+import org.bukkit.entity.Entity;
 
-/**
- * @author Dieter
- */
-public class TransformBlock extends SpellHandler {
+public class TransformBlock extends TransformHandler {
 
     private Material material;
 
@@ -41,5 +35,12 @@ public class TransformBlock extends SpellHandler {
         }
         return false;
     }
+
+    
+    @Override
+    public void transform(Object block) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 
 }

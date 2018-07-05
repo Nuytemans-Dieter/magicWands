@@ -1,16 +1,14 @@
 package be.dezijwegel.spell_handlers.generic_handlers.handlers;
 
-import be.dezijwegel.spell_handlers.SpellHandler;
+import be.dezijwegel.spell_handlers.generic_handlers.TeleportationHandler;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 import java.util.Set;
+import org.bukkit.entity.Entity;
 
-/**
- * @author Dieter
- */
-public class TeleportLocation extends SpellHandler {
+public class TeleportLocation extends TeleportationHandler {
 
     private int maxDistance;
 
@@ -26,5 +24,10 @@ public class TeleportLocation extends SpellHandler {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void teleport(Entity entity, Location location) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

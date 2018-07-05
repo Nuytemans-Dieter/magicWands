@@ -4,9 +4,6 @@ import be.dezijwegel.spell_handlers.SpellHandler;
 import lombok.Getter;
 import org.bukkit.entity.Player;
 
-/**
- * @author Dieter Nuytemans
- */
 
 @Getter
 public class Spell {

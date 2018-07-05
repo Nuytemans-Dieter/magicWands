@@ -8,9 +8,6 @@ import org.bukkit.entity.Player;
 
 import java.util.Set;
 
-/**
- * @author Dieter
- */
 public class FurnaceFire extends SpellHandler {
 
     @Override

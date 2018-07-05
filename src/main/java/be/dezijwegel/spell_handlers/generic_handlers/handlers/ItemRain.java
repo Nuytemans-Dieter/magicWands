@@ -1,6 +1,6 @@
 package be.dezijwegel.spell_handlers.generic_handlers.handlers;
 
-import be.dezijwegel.spell_handlers.SpellHandler;
+import be.dezijwegel.spell_handlers.generic_handlers.ItemHandler;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -8,10 +8,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.Set;
 
-/**
- * @author Dieter
- */
-public class ItemRain extends SpellHandler {
+public class ItemRain extends ItemHandler {
     private ItemStack item;
 
     public ItemRain(ItemStack item) {
@@ -28,7 +25,7 @@ public class ItemRain extends SpellHandler {
                 for (int x = -2; x < 3; x++) {
                     for (int z = -2; z < 3; z++) {
                         Location copy = new Location(loc.getWorld(), loc.getX() + x, loc.getY(), loc.getZ() + z);
-                        player.getWorld().dropItem(loc, item);
+                        player.getWorld().dropItem(copy, item);
                     }
                 }
             } else {
@@ -49,5 +46,10 @@ public class ItemRain extends SpellHandler {
             }
         }
         return true;
+    }
+
+    @Override
+    public void spawnItem(ItemStack item) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

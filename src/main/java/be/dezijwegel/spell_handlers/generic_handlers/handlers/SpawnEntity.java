@@ -1,17 +1,15 @@
 package be.dezijwegel.spell_handlers.generic_handlers.handlers;
 
-import be.dezijwegel.spell_handlers.SpellHandler;
+import be.dezijwegel.spell_handlers.generic_handlers.SpawnHandler;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
 import java.util.Set;
+import org.bukkit.entity.Entity;
 
-/**
- * @author Dieter
- */
-public class SpawnEntity extends SpellHandler {
+public class SpawnEntity extends SpawnHandler {
 
     private EntityType entity;
 
@@ -35,5 +33,10 @@ public class SpawnEntity extends SpellHandler {
             }
         }
         return false;
+    }
+
+    @Override
+    public void spawn(Entity entity) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

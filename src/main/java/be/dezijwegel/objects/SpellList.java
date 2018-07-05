@@ -5,9 +5,6 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * @author Dieter
- */
 public class SpellList {
 
     private ArrayList<Spell> spells;

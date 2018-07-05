@@ -12,9 +12,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
-/**
- * @author Dieter Nuytemans
- */
 public class MagicListener implements Listener {
 
 

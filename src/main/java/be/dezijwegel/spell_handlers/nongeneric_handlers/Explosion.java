@@ -7,9 +7,6 @@ import org.bukkit.entity.Player;
 
 import java.util.Set;
 
-/**
- * @author Dieter
- */
 public class Explosion extends SpellHandler {
 
     private int size;

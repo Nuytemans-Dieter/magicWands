@@ -9,9 +9,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.HashMap;
 import java.util.UUID;
 
-/**
- * @author Dieter
- */
 public class SpellHandler {
 
 
