@@ -1,5 +1,7 @@
 package be.dezijwegel.objects;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -9,10 +11,13 @@ import org.bukkit.inventory.meta.ItemMeta;
 @Getter
 public class Wand extends ItemStack {
 
-    private SpellList spells;
+    private ArrayList<Spell> spells;
+    private HashMap<Player, Integer> currentSpell;
 
     public Wand(String name) {
-        spells = new SpellList();
+        currentSpell = new HashMap<>();
+        spells = new ArrayList<>();
+        
         super.setType(Material.STICK);
         ItemMeta m = getItemMeta();
         m.setDisplayName(name);
@@ -21,38 +26,45 @@ public class Wand extends ItemStack {
     }
 
     /**
-     * Add a spell to the current wand
+     * Add a spell to this list
      *
      * @param spell
      */
     public void addSpell(Spell spell) {
-        spells.addSpell(spell);
+        spells.add(spell);
     }
 
     /**
-     * Get a custom wand ItemStack 
-     * @return ItemStack
-     */
-
-
-    /**
-     * Cycle to the next spell for a player and get the spell
-     *
-     * @param player
-     * @return
-     */
-    public Spell nextSpell(Player player) {
-        return spells.nextSpell(player);
-    }
-
-    /**
-     * Get the current spell of a player
+     * Get the current Spell a player is at
      *
      * @param player
      * @return
      */
     public Spell getSpell(Player player) {
-        return spells.getSpell(player);
+        if (currentSpell.containsKey(player)) {
+            return spells.size() > 0 ? spells.get(currentSpell.get(player)) : null;
+        } else {
+            currentSpell.put(player, 0);
+            return spells.size() > 0 ? spells.get(0) : null;
+        }
+    }
+
+    /**
+     * Switch to the next spell in the list for a player and return the Spell
+     *
+     * @param player
+     * @return String
+     */
+    public Spell nextSpell(Player player) {
+        if (currentSpell.containsKey(player)) {
+            if (currentSpell.get(player) == spells.size() - 1) currentSpell.put(player, 0);
+            else currentSpell.put(player, currentSpell.get(player) + 1);
+            return spells.get(currentSpell.get(player));
+        } else {
+            currentSpell.put(player, 0);
+            return spells.size() > 0 ? spells.get(0) : null;
+        }
+
     }
 
     public boolean equals(ItemStack i) {

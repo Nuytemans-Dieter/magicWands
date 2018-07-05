@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.inventory.ItemStack;
 
 /**
  * created by @Perotin
@@ -56,7 +58,23 @@ public class ConfigurationUtilities {
     public String getString(String path) {
         return configuration.getString(path);
     }
+    
+    public int getInt(String path) {
+        return configuration.getInt(path);
+    }
 
+    public ItemStack getItemStack(String path) {
+        return configuration.getItemStack(path);
+    }
+    
+    public boolean contains(String path) {
+        return configuration.contains(path);
+    }
+    
+    public ConfigurationSection getConfigurationSection(String path) {
+        return configuration.getConfigurationSection(path);
+    }
+    
     public void reloadFile() {
         if (configuration == null) {
             switch (type) {
