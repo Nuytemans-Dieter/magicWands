@@ -17,7 +17,10 @@ public class MagicWands extends JavaPlugin {
     /*
     TODO list.
     1. Refactor loadSpells to use abstracted classes
-    2. Fix the remaining exceptions (Handlers & comments in the main class)
+    2. Fix the remaining exceptions (comments in the main class, handlers and MagicListener)
+    3. Mana regeneration system
+    4. The PlayerInteractEvent in MagicListener has to be rewritten to fit the new system
+    5. We probably need some kind of list of PlayerData somewhere (I suggest a HashMap<UUID, PlayerData>)
      */
 
 

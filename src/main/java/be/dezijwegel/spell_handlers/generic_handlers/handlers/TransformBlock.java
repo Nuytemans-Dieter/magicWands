@@ -21,16 +21,16 @@ public class TransformBlock extends TransformHandler {
      * @deprecated
      */
     public boolean cast(Player player) {
-        if (super.cast(player)) {
-            Block b = player.getTargetBlock((Set<Material>) null, 15);
-            if (!b.getType().equals(Material.AIR)) {
-                b.setType(material);
-                super.setCast(player);
-                return true;
-            } else {
-                player.sendMessage("§3[magicWands]§cThis spell has to be cast on a block!");
-            }
-        }
+//        if (super.cast(player)) {
+//            Block b = player.getTargetBlock((Set<Material>) null, 15);
+//            if (!b.getType().equals(Material.AIR)) {
+//                b.setType(material);
+//                super.setCast(player);
+//                return true;
+//            } else {
+//                player.sendMessage("§3[magicWands]§cThis spell has to be cast on a block!");
+//            }
+//        }
         return false;
     }
 

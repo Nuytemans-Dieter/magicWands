@@ -46,6 +46,7 @@ public class Wand extends ItemStack {
 
     /**
      * Get the current Spell a player is at
+     * @return Spell
      */
     public Spell getCurrentSpell() {
         return spells.get(getCurrentSpellIndex());
