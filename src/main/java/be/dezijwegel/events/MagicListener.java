@@ -17,6 +17,7 @@ public class MagicListener implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
+        //Temporary, for wand testing purposes
         for (Wand wand : MagicWands.getWands()) {
             event.getPlayer().getInventory().addItem(wand);
         }
@@ -55,10 +56,5 @@ public class MagicListener implements Listener {
 //                }
 //            }
 //        }
-    }
-
-    @EventHandler
-    public void onLeave(PlayerQuitEvent e) {
-        //Remove player from all lists
     }
 }

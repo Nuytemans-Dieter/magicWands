@@ -1,8 +1,10 @@
 package be.dezijwegel;
 
 import be.dezijwegel.events.MagicListener;
+import be.dezijwegel.events.PlayerJoinListener;
 import be.dezijwegel.objects.Spell;
 import be.dezijwegel.objects.Wand;
+import be.dezijwegel.runnables.ManaRegeneration;
 import lombok.Getter;
 import lombok.NonNull;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -18,9 +20,7 @@ public class MagicWands extends JavaPlugin {
     TODO list.
     1. Refactor loadSpells to use abstracted classes
     2. Fix the remaining exceptions (comments in the main class, handlers and MagicListener)
-    3. Mana regeneration system
-    4. The PlayerInteractEvent in MagicListener has to be rewritten to fit the new system
-    5. We probably need some kind of list of PlayerData somewhere (I suggest a HashMap<UUID, PlayerData>)
+    3. The PlayerInteractEvent in MagicListener has to be rewritten to fit the new system
      */
 
 
@@ -30,7 +30,7 @@ public class MagicWands extends JavaPlugin {
     @Getter
     @NonNull
     private static MagicWands instance;
-
+    
     @Override
     public void onEnable() {
         instance = this;
@@ -38,6 +38,13 @@ public class MagicWands extends JavaPlugin {
         wands = new ArrayList<>();
         saveDefaultConfig();
         getServer().getPluginManager().registerEvents(new MagicListener(), this);
+        ManaRegeneration manaReg = new ManaRegeneration(5);     
+        //'5' above is the amount of mana that gets added to all players each cycle, 
+        //it's a fixed value right now but can be made variable in the future
+        //Perhaps we can work with player-specific values or group based values?
+        //The regeneration rate needs some more thought
+        getServer().getPluginManager().registerEvents(new PlayerJoinListener(manaReg), this);
+        manaReg.runTaskTimer(this, 0, 20);
     }
 
 

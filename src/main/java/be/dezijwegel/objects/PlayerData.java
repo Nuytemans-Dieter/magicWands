@@ -29,7 +29,7 @@ public class PlayerData {
     private final int maxMana;
     private final UUID uuid;
 
-    private List<Wand> wands;
+    private @Getter List<Wand> wands;
 
     public PlayerData(Player player, int maxMana) {
         this.player = player;
@@ -39,4 +39,14 @@ public class PlayerData {
 
     }
 
+    /**
+     * add a given amount of mana to the Player's current mana
+     * @param mana 
+     */
+    public void addMana(int mana)
+    {
+        currentMana += mana;
+        if (currentMana > maxMana) currentMana = maxMana;
+    }
+    
 }
