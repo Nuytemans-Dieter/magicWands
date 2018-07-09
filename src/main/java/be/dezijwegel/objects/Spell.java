@@ -34,6 +34,12 @@ public class Spell {
         this.manaCost = cost;
     }
 
-
-
+    /**
+     * Temporary placeholder 
+     * @return 
+     */
+    public boolean cast()
+    {
+        return true;
+    }
 }

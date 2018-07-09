@@ -2,6 +2,8 @@ package be.dezijwegel;
 
 import be.dezijwegel.events.MagicListener;
 import be.dezijwegel.events.PlayerJoinListener;
+import be.dezijwegel.events.PlayerLeaveListener;
+import be.dezijwegel.objects.PlayerDataList;
 import be.dezijwegel.objects.Spell;
 import be.dezijwegel.objects.Wand;
 import be.dezijwegel.runnables.ManaRegeneration;
@@ -19,8 +21,9 @@ public class MagicWands extends JavaPlugin {
     /*
     TODO list.
     1. Refactor loadSpells to use abstracted classes
-    2. Fix the remaining exceptions (comments in the main class, handlers and MagicListener)
-    3. The PlayerInteractEvent in MagicListener has to be rewritten to fit the new system
+    2. I'm working on this: The PlayerInteractEvent in MagicListener has to be rewritten to fit the new system
+    3. Decide how the active spell is determined and implement this
+       (old way was cycling through a list on right click)
      */
 
 
@@ -30,6 +33,7 @@ public class MagicWands extends JavaPlugin {
     @Getter
     @NonNull
     private static MagicWands instance;
+    private @Getter PlayerDataList playerDataList;
     
     @Override
     public void onEnable() {
@@ -38,12 +42,14 @@ public class MagicWands extends JavaPlugin {
         wands = new ArrayList<>();
         saveDefaultConfig();
         getServer().getPluginManager().registerEvents(new MagicListener(), this);
-        ManaRegeneration manaReg = new ManaRegeneration(5);     
+        playerDataList = new PlayerDataList();
+        ManaRegeneration manaReg = new ManaRegeneration(playerDataList, 5);     
         //'5' above is the amount of mana that gets added to all players each cycle, 
         //it's a fixed value right now but can be made variable in the future
         //Perhaps we can work with player-specific values or group based values?
         //The regeneration rate needs some more thought
-        getServer().getPluginManager().registerEvents(new PlayerJoinListener(manaReg), this);
+        getServer().getPluginManager().registerEvents(new PlayerJoinListener(playerDataList), this);
+        getServer().getPluginManager().registerEvents(new PlayerLeaveListener(playerDataList), this);
         manaReg.runTaskTimer(this, 0, 20);
     }
 

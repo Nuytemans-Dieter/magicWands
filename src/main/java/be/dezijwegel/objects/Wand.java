@@ -30,7 +30,7 @@ public class Wand extends ItemStack {
         m.setDisplayName(name);
         setItemMeta(m);
     }
-
+    
     /**
      * Add a spell to this list
      *
@@ -49,9 +49,10 @@ public class Wand extends ItemStack {
      * @return Spell
      */
     public Spell getCurrentSpell() {
-        return spells.get(getCurrentSpellIndex());
+        return spells.get(currentSpellIndex);
     }
 
+    
     /**
      * Set the current spell for wand
      * @param spell to set as current, must be in spells list

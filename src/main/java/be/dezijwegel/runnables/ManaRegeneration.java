@@ -1,6 +1,7 @@
 package be.dezijwegel.runnables;
 
 import be.dezijwegel.objects.PlayerData;
+import be.dezijwegel.objects.PlayerDataList;
 import java.util.HashMap;
 import java.util.UUID;
 import org.bukkit.entity.Player;
@@ -8,31 +9,22 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class ManaRegeneration extends BukkitRunnable{
 
-    private HashMap<UUID, PlayerData> list = null;
+    private PlayerDataList list;
     /**
      * @apiNote The amount of mana that gets added every cycle
      */
     private final int regenMana;
     
-
-    public ManaRegeneration(int regenMana)
+    public ManaRegeneration(PlayerDataList list, int regenMana)
     {
+        this.list = list;
         this.regenMana = regenMana;
     }
     
-    public void addPlayerData(PlayerData pd)    
-    {
-        list.put(pd.getPlayer().getUniqueId(), pd);
-    }
-    
-    public void removePlayerData(Player pd)
-    {
-        list.remove(pd.getUniqueId());
-    }
     
     @Override
     public void run() {
-        list.entrySet().stream().forEach((entry) -> {
+        list.getList().entrySet().stream().forEach((entry) -> {
             entry.getValue().addMana(regenMana);
         });
     }
