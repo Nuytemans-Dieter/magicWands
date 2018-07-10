@@ -4,6 +4,7 @@ import be.dezijwegel.MagicWands;
 import be.dezijwegel.objects.Spell;
 import be.dezijwegel.spell_handlers.SpellHandler;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -81,9 +82,14 @@ public class ConfigurationUtilities {
     }
 
     public String getString(String path) {
-        return configuration.getString(path);
+        String string = ChatColor.translateAlternateColorCodes('&', configuration.getString(path));
+        if (string.contains("$prefix$")) {
+            string.replace("$prefix$", getConfiguration().getString("prefix"));
+        }
+        return string;
     }
-    
+
+
     public int getInt(String path) {
         return configuration.getInt(path);
     }

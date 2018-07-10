@@ -13,14 +13,15 @@ public class Spell {
     private final String name;
     private final String description;
     private final SpellHandler handler;
-    private final int manaCost;
+    @Setter
+    private int manaCost;
     @Setter
     private Wand wand;
 
     /**
      * Create a spell with given name, message that will be sent to the player upon casting the spell
      * and message that wil be sent to the player upon selecting the Spell.
-     * Enables a cooldown (in 0,1 seconds, 10 would mean 1 second)
+     * Wand is set to null meaning it is not attached to any player
      *
      * @param name
      * @param description
@@ -32,14 +33,22 @@ public class Spell {
         this.description = description;
         this.handler = handler;
         this.manaCost = cost;
+        this.wand = null;
     }
 
     /**
-     * Temporary placeholder 
-     * @return 
+     *
+     * @param name of spell
+     * @param description
+     * @param handler of spell
+     * @param manaCost of spell
+     * @param wand that spell is attached too
      */
-    public boolean cast()
-    {
-        return true;
+    public Spell(String name, String description, SpellHandler handler, int manaCost, Wand wand) {
+        this.name = name;
+        this.description = description;
+        this.handler = handler;
+        this.manaCost = manaCost;
+        this.wand = wand;
     }
 }

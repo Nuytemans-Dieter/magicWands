@@ -40,10 +40,15 @@ public class MagicWands extends JavaPlugin {
         As for our object structure I think it should be something like this:
             Wizard (Player object, I renamed it) -> Wands -> Spells -> Handler
 
-            With this in mind we have to refactor parts of our objects to fit this code. So for example we shouldn't store the caster in a Wand, Spell, or Handler and so on.
+            With this in mind we have to refactor parts of our objects to fit this code. So for example we  CAN store the caster in a Wand, Spell, or Handler and so on
+            in classes that subclass them but we have to keep in mind recursion and when we structure them.
 
-            I will think over this as well, but this is what I thought of just recently.
-            */
+            Here is a little tree that can help us:
+            Wizard CAN have wands and wands CAN have a wizard attached, Wands CAN have spells and spells CAN have a wand object, Spells MUST have a handler
+
+            So our relation ships look a little something like this
+            Wizard <-> Wand <-> Spells <-> Handler
+                        */
 
 
     /**
@@ -72,9 +77,7 @@ public class MagicWands extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerLeaveListener(), this);
         ConfigurationUtilities.loadSpells();
-        // load players first, then loop through each player and run their ManaRegen task
-        // will have to account for join event too, but this should cover us for people who /reload
-        getPlayers().forEach(playerData -> playerData.getManaTask().runTaskTimerAsynchronously(this, 0, playerData.getManaTask().getCycle()*20));
+
     }
 
 

@@ -1,3 +1,11 @@
 # Welcome to the Messages file for magicWands!
 # Here you can find any message found in the plugin.
 
+# Placeholders
+# Use $prefix$ anywhere to insert the prefix
+# Use $spell$ to get the spell's name, only use if $spell$ appeared in default message!
+# Use $wizard$ to get the wizard's name, only use if $wizard$ appear in default message!
+
+prefix: "&6[&cMagic&6] "
+casted-spell: "$prefix$ &7You have casted &e$spell$&7!"
+not-enough-mana: "$prefix$ &7You need &e$mana$ &7more mana to cast &e$spell$&7!"
