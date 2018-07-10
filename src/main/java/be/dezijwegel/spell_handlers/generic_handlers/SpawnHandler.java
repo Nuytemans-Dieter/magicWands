@@ -1,6 +1,6 @@
 package be.dezijwegel.spell_handlers.generic_handlers;
 
-import be.dezijwegel.objects.PlayerData;
+import be.dezijwegel.objects.Wizard;
 import be.dezijwegel.spell_handlers.SpellHandler;
 import lombok.Getter;
 import lombok.NonNull;
@@ -17,7 +17,7 @@ public abstract class SpawnHandler extends SpellHandler {
     @NonNull
     protected final Entity toSpawn;
 
-    public SpawnHandler(PlayerData caster, Location location, Entity toSpawn) {
+    public SpawnHandler(Wizard caster, Location location, Entity toSpawn) {
         super(caster);
         this.location = location;
         this.toSpawn = toSpawn;

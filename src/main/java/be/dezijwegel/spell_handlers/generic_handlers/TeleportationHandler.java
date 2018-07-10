@@ -1,6 +1,6 @@
 package be.dezijwegel.spell_handlers.generic_handlers;
 
-import be.dezijwegel.objects.PlayerData;
+import be.dezijwegel.objects.Wizard;
 import be.dezijwegel.spell_handlers.SpellHandler;
 import lombok.Getter;
 import lombok.NonNull;
@@ -16,7 +16,7 @@ public abstract class TeleportationHandler extends SpellHandler {
     @NonNull
     protected Location location;
 
-    public TeleportationHandler(PlayerData caster, Entity teleport, Location location) {
+    public TeleportationHandler(Wizard caster, Entity teleport, Location location) {
         super(caster);
         this.teleport = teleport;
         this.location = location;

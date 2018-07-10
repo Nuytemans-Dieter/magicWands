@@ -1,19 +1,16 @@
 package be.dezijwegel.spell_handlers.generic_handlers.handlers;
 
-import be.dezijwegel.objects.PlayerData;
+import be.dezijwegel.objects.Wizard;
 import be.dezijwegel.spell_handlers.generic_handlers.TeleportationHandler;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-
-import java.util.Set;
 
 public class TeleportLocation extends TeleportationHandler {
 
     private final int maxDistance;
 
-    public TeleportLocation(PlayerData caster, Entity teleport, Location location, int maxDistance) {
+    public TeleportLocation(Wizard caster, Entity teleport, Location location, int maxDistance) {
         super(caster, teleport, location);
         this.maxDistance = maxDistance;
     }

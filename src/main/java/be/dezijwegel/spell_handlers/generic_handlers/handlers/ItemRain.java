@@ -1,6 +1,6 @@
 package be.dezijwegel.spell_handlers.generic_handlers.handlers;
 
-import be.dezijwegel.objects.PlayerData;
+import be.dezijwegel.objects.Wizard;
 import be.dezijwegel.spell_handlers.generic_handlers.SpawnHandler;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class ItemRain extends SpawnHandler {
 
-    public ItemRain(Entity entity, Location location, PlayerData caster) {
+    public ItemRain(Entity entity, Location location, Wizard caster) {
 
         super(caster, location, entity);
     }

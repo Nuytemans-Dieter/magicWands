@@ -1,17 +1,11 @@
 package be.dezijwegel.spell_handlers.nongeneric_handlers;
 
-import be.dezijwegel.objects.PlayerData;
+import be.dezijwegel.objects.Wizard;
 import be.dezijwegel.spell_handlers.SpellHandler;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.block.Furnace;
-import org.bukkit.entity.Player;
-
-import java.util.Set;
 
 public class FurnaceFire extends SpellHandler {
 
-    public FurnaceFire(PlayerData caster) {
+    public FurnaceFire(Wizard caster) {
         super(caster);
     }
 

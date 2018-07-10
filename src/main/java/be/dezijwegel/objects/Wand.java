@@ -17,13 +17,13 @@ public class Wand extends ItemStack {
     private ArrayList<Spell> spells;
     @Setter
     private int currentSpellIndex;
-    private final PlayerData playerData;
+    private final Wizard wizard;
     private final String name;
 
-    public Wand(String name, PlayerData playerData) {
+    public Wand(String name, Wizard wizard) {
         this.currentSpellIndex = 0;
         this.spells = new ArrayList<>();
-        this.playerData = playerData;
+        this.wizard = wizard;
         this.name = name;
         super.setType(Material.STICK);
         ItemMeta m = getItemMeta();
@@ -66,7 +66,7 @@ public class Wand extends ItemStack {
             index++;
         }
         try {
-            throw new SpellNotFoundException(spell, playerData.getPlayer().getName(), getName());
+            throw new SpellNotFoundException(spell, wizard.getPlayer().getName(), getName());
         } catch (SpellNotFoundException exception) {
             exception.printStackTrace();
         }

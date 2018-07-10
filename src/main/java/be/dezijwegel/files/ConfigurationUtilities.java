@@ -1,6 +1,9 @@
 package be.dezijwegel.files;
 
 import be.dezijwegel.MagicWands;
+import be.dezijwegel.objects.Spell;
+import be.dezijwegel.spell_handlers.SpellHandler;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -51,6 +54,20 @@ public class ConfigurationUtilities {
         ConfigurationUtilities file = new ConfigurationUtilities(FileType.SPELLS, MagicWands.getInstance());
         for (String spellName : file.getConfiguration().getConfigurationSection("spells").getKeys(false)) {
             String description = file.getConfiguration().getString("spells." + spellName + ".description");
+            int cost = file.getInt("spells." + spellName + ".cost");
+
+            SpellHandler spellHandler = null;
+            try {
+                spellHandler = (SpellHandler) Class.forName(file.getString("spells." + spellName + ".handler")).newInstance();
+            } catch (Exception ex) {
+                Bukkit.getConsoleSender().sendMessage("Spell handler not found for " + spellName + "!");
+                Bukkit.getConsoleSender().sendMessage(spellName + " will not be loaded!");
+                continue;
+
+            }
+            if (spellHandler != null) {
+                MagicWands.getSpells().add(new Spell(spellName, description, spellHandler, cost));
+            }
 
 
         }

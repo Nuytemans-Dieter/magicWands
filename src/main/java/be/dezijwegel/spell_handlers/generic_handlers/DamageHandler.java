@@ -1,6 +1,6 @@
 package be.dezijwegel.spell_handlers.generic_handlers;
 
-import be.dezijwegel.objects.PlayerData;
+import be.dezijwegel.objects.Wizard;
 import be.dezijwegel.spell_handlers.SpellHandler;
 import lombok.Getter;
 import lombok.NonNull;
@@ -15,8 +15,8 @@ public abstract class DamageHandler extends SpellHandler{
     @NonNull
     protected int damage;
 
-    public DamageHandler(Entity entity, int damage, PlayerData playerData) {
-        super(playerData);
+    public DamageHandler(Entity entity, int damage, Wizard wizard) {
+        super(wizard);
         this.entity = entity;
         this.damage = damage;
     }

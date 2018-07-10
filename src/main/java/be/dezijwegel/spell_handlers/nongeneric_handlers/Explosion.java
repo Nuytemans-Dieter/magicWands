@@ -1,13 +1,13 @@
 package be.dezijwegel.spell_handlers.nongeneric_handlers;
 
-import be.dezijwegel.objects.PlayerData;
+import be.dezijwegel.objects.Wizard;
 import be.dezijwegel.spell_handlers.SpellHandler;
 
 public class Explosion extends SpellHandler {
 
     private int radius;
 
-    public Explosion(int radius, PlayerData caster) {
+    public Explosion(int radius, Wizard caster) {
         super(caster);
         this.radius = radius;
     }

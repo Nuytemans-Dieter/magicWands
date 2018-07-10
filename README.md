@@ -5,6 +5,7 @@ A plugin that adds spells to the game by binding them to wands.
 Very early stages. If you wish to push to this branch just make a pull request and we will check it out.
 
 More to come to this page as well.
+
 *Note: You must be using Lombok if you wish to contribute, as many methods are annotated with it and will cause errors if you're not using it! See dependencies for more.*
 
 ## Dependencies

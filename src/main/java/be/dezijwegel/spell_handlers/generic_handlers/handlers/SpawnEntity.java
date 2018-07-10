@@ -1,18 +1,15 @@
 package be.dezijwegel.spell_handlers.generic_handlers.handlers;
 
-import be.dezijwegel.objects.PlayerData;
+import be.dezijwegel.objects.Wizard;
 import be.dezijwegel.spell_handlers.generic_handlers.SpawnHandler;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-
-import java.util.Set;
 
 public class SpawnEntity extends SpawnHandler {
 
 
-    public SpawnEntity(PlayerData caster, Location location, Entity toSpawn) {
+    public SpawnEntity(Wizard caster, Location location, Entity toSpawn) {
         super(caster, location, toSpawn);
     }
 

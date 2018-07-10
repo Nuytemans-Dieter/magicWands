@@ -1,5 +1,6 @@
 package be.dezijwegel.objects;
 
+import be.dezijwegel.runnables.ManaRegeneration;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.entity.Player;
@@ -12,7 +13,7 @@ import java.util.UUID;
  **/
 @Getter
 @Setter
-public class PlayerData {
+public class Wizard {
 
 
     /**
@@ -28,25 +29,22 @@ public class PlayerData {
      */
     private final int maxMana;
     private final UUID uuid;
+    /**
+     * @apiNote mana regen runnable, can vary between players
+     */
+    private ManaRegeneration manaTask;
 
     private @Getter List<Wand> wands;
 
-    public PlayerData(Player player, int maxMana) {
+    public Wizard(Player player, int maxMana, ManaRegeneration regeneration) {
         this.player = player;
         this.uuid = player.getUniqueId();
         this.maxMana = maxMana;
         this.currentMana = maxMana;
+        this.manaTask = regeneration;
 
     }
 
-    /**
-     * add a given amount of mana to the Player's current mana
-     * @param mana 
-     */
-    public void addMana(int mana)
-    {
-        currentMana += mana;
-        if (currentMana > maxMana) currentMana = maxMana;
-    }
+
     
 }
