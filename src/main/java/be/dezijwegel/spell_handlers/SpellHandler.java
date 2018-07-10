@@ -1,8 +1,9 @@
 package be.dezijwegel.spell_handlers;
 
 
+public interface SpellHandler {
 
-public class SpellHandler {
+     void run();
 
 
 }

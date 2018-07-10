@@ -1,12 +1,11 @@
 package be.dezijwegel.spell_handlers.generic_handlers;
 
-import be.dezijwegel.objects.Wizard;
 import be.dezijwegel.spell_handlers.SpellHandler;
 import lombok.Getter;
 import lombok.NonNull;
 
 
-public abstract class TransformHandler<T, E> extends SpellHandler {
+public abstract class TransformHandler<T, E> implements SpellHandler {
 
 
     @Getter
@@ -16,8 +15,7 @@ public abstract class TransformHandler<T, E> extends SpellHandler {
     @NonNull
     protected E newObject;
 
-    public TransformHandler(Wizard caster, T object, E newObject) {
-        super(caster);
+    public TransformHandler(T object, E newObject) {
         this.object = object;
         this.newObject = newObject;
     }

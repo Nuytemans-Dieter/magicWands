@@ -1,6 +1,5 @@
 package be.dezijwegel.spell_handlers.generic_handlers.handlers;
 
-import be.dezijwegel.objects.Wizard;
 import be.dezijwegel.spell_handlers.generic_handlers.TransformHandler;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -15,8 +14,8 @@ public class SpawnBlock extends TransformHandler {
 
     private final Material material;
 
-    public SpawnBlock(Wizard caster, Location location, Entity toSpawn, Material material) {
-        super(caster, location, toSpawn);
+    public SpawnBlock(Location location, Entity toSpawn, Material material) {
+        super(location, toSpawn);
         this.material = material;
     }
 

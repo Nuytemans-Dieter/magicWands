@@ -1,6 +1,5 @@
 package be.dezijwegel.spell_handlers.generic_handlers.handlers;
 
-import be.dezijwegel.objects.Wizard;
 import be.dezijwegel.spell_handlers.generic_handlers.TransformHandler;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -10,8 +9,8 @@ public class TransformBlock extends TransformHandler {
 
     private final Material material;
 
-    public TransformBlock(Wizard caster, Block object, Block newObject, Material material) {
-        super(caster, object, newObject);
+    public TransformBlock(Block object, Block newObject, Material material) {
+        super(object, newObject);
         this.material = material;
     }
 

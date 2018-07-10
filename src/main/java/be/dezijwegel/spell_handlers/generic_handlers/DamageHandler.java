@@ -1,12 +1,11 @@
 package be.dezijwegel.spell_handlers.generic_handlers;
 
-import be.dezijwegel.objects.Wizard;
 import be.dezijwegel.spell_handlers.SpellHandler;
 import lombok.Getter;
 import lombok.NonNull;
 import org.bukkit.entity.Entity;
 
-public abstract class DamageHandler extends SpellHandler{
+public abstract class DamageHandler implements SpellHandler {
 
     @Getter
     @NonNull
@@ -15,8 +14,7 @@ public abstract class DamageHandler extends SpellHandler{
     @NonNull
     protected int damage;
 
-    public DamageHandler(Entity entity, int damage, Wizard wizard) {
-        super(wizard);
+    public DamageHandler(Entity entity, int damage) {
         this.entity = entity;
         this.damage = damage;
     }

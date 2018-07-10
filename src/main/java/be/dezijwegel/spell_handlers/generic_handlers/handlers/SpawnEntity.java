@@ -1,6 +1,5 @@
 package be.dezijwegel.spell_handlers.generic_handlers.handlers;
 
-import be.dezijwegel.objects.Wizard;
 import be.dezijwegel.spell_handlers.generic_handlers.SpawnHandler;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
@@ -9,8 +8,9 @@ import org.bukkit.entity.Player;
 public class SpawnEntity extends SpawnHandler {
 
 
-    public SpawnEntity(Wizard caster, Location location, Entity toSpawn) {
-        super(caster, location, toSpawn);
+    public SpawnEntity(Location location, Entity toSpawn) {
+
+        super(location, toSpawn);
     }
 
     /**

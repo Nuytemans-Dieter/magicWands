@@ -1,13 +1,12 @@
 package be.dezijwegel.spell_handlers.generic_handlers;
 
-import be.dezijwegel.objects.Wizard;
 import be.dezijwegel.spell_handlers.SpellHandler;
 import lombok.Getter;
 import lombok.NonNull;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 
-public abstract class TeleportationHandler extends SpellHandler {
+public abstract class TeleportationHandler implements SpellHandler {
 
     @Getter
     @NonNull
@@ -16,8 +15,7 @@ public abstract class TeleportationHandler extends SpellHandler {
     @NonNull
     protected Location location;
 
-    public TeleportationHandler(Wizard caster, Entity teleport, Location location) {
-        super(caster);
+    public TeleportationHandler(Entity teleport, Location location) {
         this.teleport = teleport;
         this.location = location;
     }

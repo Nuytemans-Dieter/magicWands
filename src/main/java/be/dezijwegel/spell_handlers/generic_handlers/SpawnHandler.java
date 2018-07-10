@@ -1,13 +1,12 @@
 package be.dezijwegel.spell_handlers.generic_handlers;
 
-import be.dezijwegel.objects.Wizard;
 import be.dezijwegel.spell_handlers.SpellHandler;
 import lombok.Getter;
 import lombok.NonNull;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 
-public abstract class SpawnHandler extends SpellHandler {
+public abstract class SpawnHandler implements SpellHandler {
 
 
     @Getter
@@ -17,13 +16,13 @@ public abstract class SpawnHandler extends SpellHandler {
     @NonNull
     protected final Entity toSpawn;
 
-    public SpawnHandler(Wizard caster, Location location, Entity toSpawn) {
-        super(caster);
+    public SpawnHandler(Location location, Entity toSpawn) {
         this.location = location;
         this.toSpawn = toSpawn;
     }
 
     public abstract void spawn(Entity entity, Location location);
+
 
     public void run() {
         spawn(toSpawn, location);
