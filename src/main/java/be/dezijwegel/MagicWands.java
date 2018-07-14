@@ -21,10 +21,15 @@ import java.util.HashSet;
 public class MagicWands extends JavaPlugin {
     /*
     TODO list.
-    1. Refactor loadSpells to use abstracted classes: Done. See ConfigurationUtilities.loadSpells for implementation
-    2. I'm working on this: The PlayerInteractEvent in MagicListener has to be rewritten to fit the new system
-    3. Decide how the active spell is determined and implement this
-       (old way was cycling through a list on right click)
+    1. A GUI that sells wands/spells to players (very low priority right now)
+    2. System to change the active spell for a user (using the toolbar on right clicking with the wand)
+        -> + we need to implement this in MagicListener
+        -> We should switch between the regular inventory and the spells inventory upon right click with a wand
+          (perhaps we could add a currently inactive Inventory field in Wizard)
+        -> Spells could contain an ItemStack that will be displayed in the spells inventory
+           with a name and a description
+        -> A listener that gets executed upon spell selection that changes the active spell to the
+           one that was clicked
 
        Just some more notes: We need to think some more about the structure of our objects. I think we should have it more orientated around Spells than Handlers.
         Basically we'll have 3 types of spells,
@@ -37,16 +42,14 @@ public class MagicWands extends JavaPlugin {
         If we can maintain a system where others can easily load in their own spells via a plugin then that is a pretty good alternative to a spells.yml
 
 
-        As for our object structure I think it should be something like this:
-            Wizard (Player object, I renamed it) -> Wands -> Spells -> Handler
+        This will be our object structure:
+            Wizard -> Wands -> Spells -> Handler
 
             With this in mind we have to refactor parts of our objects to fit this code. So for example we  CAN store the caster in a Wand, Spell, or Handler and so on
             in classes that subclass them but we have to keep in mind recursion and when we structure them.
 
-            Here is a little tree that can help us:
+        Our relationships:
             Wizard CAN have wands and wands CAN have a wizard attached, Wands CAN have spells and spells CAN have a wand object, Spells MUST have a handler
-
-            So our relation ships look a little something like this
             Wizard <-> Wand <-> Spells <-> Handler
                         */
 
